@@ -51,7 +51,7 @@ cnts = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 ## and recognition.
 
 # Handling due to different version of OpenCV
-cnts = cnts[0] if imutils.is_cv2() else cnts[1]
+cnts = cnts[0]
 
 # Taking only the top 5 contours by Area
 cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:5]
