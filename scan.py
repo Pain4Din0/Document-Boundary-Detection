@@ -1,4 +1,3 @@
-from pyimagesearch.transform import four_point_transform
 import numpy as np
 import argparse
 import cv2
@@ -61,4 +60,4 @@ end_time = time.time()
 execution_time = end_time - start_time
 print("Total execution time:", execution_time)
 
-cv2.waitKey(0)
+cv2.waitKey()
