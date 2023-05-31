@@ -1,5 +1,4 @@
 from pyimagesearch.transform import four_point_transform
-
 import numpy as np
 import argparse
 import cv2
@@ -54,17 +53,4 @@ print("STEP 2: Finding Boundary")
 
 cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
 cv2.imshow("Boundary", image)
-
-# 变形处理
-warped = four_point_transform(orig, screenCnt.reshape(4, 2) * ratio)
-
-# 灰阶处理
-warped = cv2.cvtColor(warped, cv2.COLOR_BGR2GRAY)
-T = threshold_local(warped, 11, offset = 10, method = "gaussian")
-warped = (warped > T).astype("uint8") * 255
-
-# 展示
-print("STEP 3: Apply perspective transform")
-
-cv2.imshow("Scanned", imutils.resize(warped, height = 650))
 cv2.waitKey(0)
