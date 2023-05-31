@@ -3,6 +3,9 @@ import numpy as np
 import argparse
 import cv2
 import imutils
+import time
+
+start_time = time.time()
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required = True,
@@ -53,4 +56,9 @@ print("STEP 2: Finding Boundary")
 
 cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
 cv2.imshow("Boundary", image)
+
+end_time = time.time()
+execution_time = end_time - start_time
+print("Total execution time:", execution_time)
+
 cv2.waitKey(0)
